@@ -1,0 +1,14 @@
+
+    <!--This displays the albums in the library or shows a message when there are no albums-->
+
+{% if all_albums %}
+    <h3>Here are all your albums:</h3>
+
+    <ul>
+        {% for album in all_albums %}
+        <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3> You don't have any albums</h3>
+{% endif %}
