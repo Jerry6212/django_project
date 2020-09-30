@@ -1,4 +1,10 @@
-    <!--This displays the albums in the library or shows a message when there are no albums-->
+<!-- Loads the path of your static files -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+
+
+
+<!--This displays the albums in the library or shows a message when there are no albums-->
 
 {% if all_albums %}
     <h3>Here are all your albums:</h3>
