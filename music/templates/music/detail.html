@@ -6,22 +6,13 @@
 <h1>{{ album.album_title }}</h1>
 <h3>{{ album.artist }}</h3>
 
-{% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
-{% endif %}
-
-<form action="{% url 'music:favorite' album.id  %}" method="post">
-    {% csrf_token %}
     {% for song in album.song_set.all %}
         <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}"/>
-        <label for="song{{ forloop.counter }}">
             {{ song.song_title }}
             {% if song.is_favorite %}
                 <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector
                 %2Fflat-star-icon-favorite-sign-bookmark-button-vector-13229286&psig=AOvVaw2MoMWb7KT2vmOP48fxe1Z6&ust
                 =1601466983424000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD36MinjuwCFQAAAAAdAAAAABAD" />
             {% endif %}
-        </label><br>
+            <br>
     {% endfor %}
-    <input type="submit" value="favorite">
-</form>
